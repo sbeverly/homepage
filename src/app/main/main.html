@@ -2,10 +2,14 @@
 
   <div ng-include="'app/components/navbar/navbar.html'"></div>
 
-  <div ng-switch on="main.activePanel">
-    <about ng-switch-when='about'></about>
-    <contact ng-switch-when='contact'></contact>
-    <blog ng-switch-default='blog'></blog>
+  <div class="row">
+  	<div class="col-md-12">
+	  <div ng-switch on="main.activePanel">
+	    <about ng-switch-when='about'></about>
+	    <contact ng-switch-when='contact'></contact>
+	    <blog ng-switch-default></blog>
+	  </div>
+  	</div>
   </div>
 
 </div>
