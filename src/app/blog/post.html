@@ -1,7 +1,8 @@
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="PostCtrl as post" ng-init="post.loadPost()">
 	<div class="row">
 		<div class="col-md-8">
-			<h3 class="post-header">{{ blog.posts[blog.selectedPost].title }} <br>
+			<i class="fa fa-arrow-left" ui-sref="app.blog.list"></i>
+			<h3 class="post-header">{{ post.selectedPost.title }} <br>
 				<small>{{ blog.posts[blog.selectedPost].created_at }}</small>
 			</h3>
 		</div>

@@ -1,15 +1,7 @@
 <div class="container" ng-controller="BlogCtrl as blog" ng-init="blog.pullBlogPosts()">
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
-
-			<div ng-show="blog.selectedPost == null" ng-repeat="post in blog.posts">
-				<h4 class="text-center post-stub" ng-click="blog.selectPost($index)">{{ post.title }}</h4>
-			</div>
-
-			<div ng-if="blog.selectedPost || blog.selectedPost == 0" class="row">
-				<i class="fa fa-arrow-left fa-small" ng-click="blog.clearSelectedPost()"></i>
-				<post></post>
-			</div>
+			<div ui-view="content"></div>
 		</div>
 	</div>
 </div>
