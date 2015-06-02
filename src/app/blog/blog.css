@@ -1,13 +1,10 @@
 .post-stub {
 	cursor: pointer;
+	font-size: 19px;
 }
 
 .post-header {
 	vertical-align: bottom;
-}
-
-.post-text {
-
 }
 
 .h3 {

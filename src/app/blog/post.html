@@ -1,14 +1,31 @@
 <div class="container-fluid" ng-controller="PostCtrl as post" ng-init="post.loadPost()">
+	
+	<div class="row">
+		<div class="col-md-12">
+			<span class="link" ui-sref="app.blog.list">
+				back to posts
+			</span>
+			<span style="float:right;">
+				<i class="fa fa-arrow-left link" ui-sref="app.blog.post({ id: post.selectedPost.id - 1 })"></i>
+				&nbsp;
+				<i class="fa fa-arrow-right link" ui-sref="app.blog.post({ id: post.selectedPost.id + 1 })"></i>
+			</span>	
+		</div>
+	</div>
+
 	<div class="row">
 		<div class="col-md-8">
-			<i class="fa fa-arrow-left" ui-sref="app.blog.list"></i>
 			<h3 class="post-header">{{ post.selectedPost.title }} <br>
-				<small>{{ blog.posts[blog.selectedPost].created_at }}</small>
+				<small>{{ post.selectedPost.created_at | date }}</small>
 			</h3>
 		</div>
 	</div>
 
-	<p class="post-text text-justify">
-		{{ blog.posts[blog.selectedPost].text }}
-	</p>
+	<div class="row">
+		<div class="col-md-12">
+			<p class="post-text text-justify">
+				{{ post.selectedPost.text }}
+			</p>
+		</div>
+	</div>
 </div>

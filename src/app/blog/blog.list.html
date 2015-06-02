@@ -1,3 +1,11 @@
 <div ng-repeat="post in blog.posts">
-	<h4 class="text-center post-stub" ui-sref="app.blog.post({id: post.id})">{{ post.title }}</h4>
+	<div class="col-md-8 col-md-offset-2">
+		<div class="row post-stub" ui-sref="app.blog.post({id: post.id})">
+			<span>{{ post.title }}</span>
+			<span style="float:right;"><small>{{ post.created_at | date }}</small></span>
+			
+			<div style="margin-top: 1.5vh;" class="text-justify"> <small><small> {{ post.text | limitTo: 150 }} </small></small></div>
+		</div>
+		<div class="row"><hr></div>
+	</div>
 </div>
