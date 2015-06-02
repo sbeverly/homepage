@@ -1,17 +1,16 @@
 'use strict';
 
 angular.module('homepage')
-  .controller('BlogCtrl', function ($scope, $http) {
+  .controller('BlogCtrl', function ($scope, $http, blogService) {
   	var self = this
 
   	self.posts = null;
   	self.selectedPost = null;
 
-  	self.pullBlogPosts = function() {
-  		$http.get('http://localhost:4000/api/blog_posts').
-  			success(function(data) {
-  				self.posts = data
-  			})
+  	self.getPosts = function() {
+  	  blogService.getPosts().then(function (data) {
+        self.posts = data
+      })
   	}
 
   	self.selectPost = function(index) {
@@ -21,4 +20,6 @@ angular.module('homepage')
   	self.clearSelectedPost = function() {
   		self.selectedPost = null;
   	}
+
+    self.getPosts();
   });
