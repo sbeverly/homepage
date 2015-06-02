@@ -2,9 +2,9 @@
 
 angular.module('homepage', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router'])
   .config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.when('/', '/blog/list');
-    $urlRouterProvider.when('/blog', '/blog/list');
-    $urlRouterProvider.otherwise('/');
+    // $urlRouterProvider.when('/', '/blog/list');
+    // $urlRouterProvider.when('/blog', '/blog/list');
+    // $urlRouterProvider.otherwise('/');
     
     $stateProvider
       .state('app', {
