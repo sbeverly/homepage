@@ -1,6 +1,4 @@
-'use strict';
-
-angular.module('homepage', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router'])
+angular.module('homepage')
   .config(function ($stateProvider, $urlRouterProvider) {
     // $urlRouterProvider.when('/', '/blog/list');
     // $urlRouterProvider.when('/blog', '/blog/list');
@@ -10,42 +8,42 @@ angular.module('homepage', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', '
       .state('app', {
         url: '/',
         views: {
-          'navbar@': { templateUrl: 'app/components/navbar/navbar.html' }
+          'navbar@': { templateUrl: 'app/shared/navbar/navbar.html' }
         }
       })
 
       .state('app.about', {
         url: 'about',
         views: {
-          'content@': { templateUrl: 'app/about/about.html' }
+          'content@': { templateUrl: 'app/components/about/about.html' }
         }
       })
 
       .state('app.blog', {
         url: 'blog',
         views: { 
-          'content@': { templateUrl: 'app/blog/blog.html' }
+          'content@': { templateUrl: 'app/components/blog/blog.html' }
         }
       })
 
       .state('app.blog.list', {
         url: '/posts',
         views: {
-          'content@app.blog': { templateUrl: 'app/blog/blog.list.html' }
+          'content@app.blog': { templateUrl: 'app/components/blog/blog.list.html' }
         }
       })
 
       .state('app.blog.post', {
         url: '/posts/:id',
         views: {
-          'content@app.blog': { templateUrl: 'app/blog/post.html' }
+          'content@app.blog': { templateUrl: 'app/components/blog/post.html' }
         }
       })
 
       .state('app.contact', {
         url: '/contact',
         views : {
-          'content@': { templateUrl: 'app/contact/contact.html' }
+          'content@': { templateUrl: 'app/components/contact/contact.html' }
         }
       })
   });
