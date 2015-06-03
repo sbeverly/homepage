@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('homepage')
 	.factory('blogService', function($http, $q, lodash) {
 		var service = {};
@@ -6,7 +8,7 @@ angular.module('homepage')
 
 		// call this, then chain other calls to the other methods to ensure posts are loaded.
 		service.postsPromise = function() {
-			return postsPromise
+			return postsPromise;
 		};
 
 		service.pullPosts = function() {
@@ -14,15 +16,15 @@ angular.module('homepage')
 
 			$http.get('http://localhost:4000/api/blog_posts')
 	  			.success(function(data) {
-	  				_posts = data
+	  				_posts = data;
 	  				deferred.resolve(_posts);
-				})
+				});
 
 	  		return deferred.promise;
 		};
 
 		service.getPosts = function() {
-			return _posts
+			return _posts;
 		};
 
 		service.findPost = function(id) {
@@ -31,7 +33,7 @@ angular.module('homepage')
 			lodash.find(_posts, function(chr) {
 				if(chr.id == id)
 					post = chr;
-			})
+			});
 
 			return post;
 		};
