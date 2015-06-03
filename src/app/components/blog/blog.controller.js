@@ -8,8 +8,8 @@ angular.module('homepage')
   	self.selectedPost = null;
 
   	self.getPosts = function() {
-  	  blogService.getPosts().then(function (data) {
-        self.posts = data
+  	  blogService.postsPromise().then(function() {
+        self.posts = blogService.getPosts()
       })
   	}
 
