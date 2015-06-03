@@ -12,12 +12,4 @@ angular.module('homepage')
         self.posts = blogService.getPosts();
       });
   	};
-
-  	self.selectPost = function(index) {
-  		self.selectedPost = index;
-  	};
-
-  	self.clearSelectedPost = function() {
-  		self.selectedPost = null;
-  	};
   });
