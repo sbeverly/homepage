@@ -17,9 +17,9 @@ angular.module('homepage')
 		};
 
 		service.getPosts = function() {
-			return postsExistPromise
+			return postsPromise
 		};
 
-		var postsExistPromise = service.pullPosts();
+		var postsPromise = service.pullPosts();
 		return service;
 	});
