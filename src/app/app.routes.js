@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('homepage')
   .config(function ($stateProvider, $urlRouterProvider) {
     // $urlRouterProvider.when('/', '/blog/list');
