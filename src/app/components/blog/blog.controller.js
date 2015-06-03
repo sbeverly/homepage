@@ -20,6 +20,4 @@ angular.module('homepage')
   	self.clearSelectedPost = function() {
   		self.selectedPost = null;
   	}
-
-    self.getPosts();
   });
