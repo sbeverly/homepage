@@ -1,14 +1,13 @@
-<div class="container-fluid" ng-controller="PostCtrl as post" ng-init="post.loadPost()">
-	
+<div class="container-fluid" ng-controller="PostCtrl as post" ng-init="post.loadPosts()">
 	<div class="row">
 		<div class="col-md-12">
 			<span class="link" ui-sref="app.blog.list">
 				back to posts
 			</span>
 			<span style="float:right;">
-				<i class="fa fa-arrow-left link" ui-sref="app.blog.post({ id: post.selectedPost.id - 1 })"></i>
+				<i ng-show="post.previousPostId()" class="fa fa-arrow-left link" ui-sref="app.blog.post({ id: post.previousPostId() })"></i>
 				&nbsp;
-				<i class="fa fa-arrow-right link" ui-sref="app.blog.post({ id: post.selectedPost.id + 1 })"></i>
+				<i ng-show="post.nextPostId()" class="fa fa-arrow-right link" ui-sref="app.blog.post({ id: post.nextPostId() })"></i>
 			</span>	
 		</div>
 	</div>
