@@ -2,7 +2,7 @@
 
 angular.module('homepage')
   .controller('PostCtrl', function ($stateParams, blogService, lodash) {
-  	var self = this
+  	var self = this;
 
   	self.selectedPost = {};
     self.postIds = [];
