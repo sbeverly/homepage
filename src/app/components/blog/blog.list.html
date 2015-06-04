@@ -1,13 +1,19 @@
-<div ng-repeat="post in blog.posts">
-	<div class="col-md-8 col-md-offset-2">
-		<div class="row post-stub" ui-sref="app.blog.post({id: post.id})">
-			<span>{{ post.title }}</span>
-			<span style="float:right;"><small>{{ post.created_at | date }}</small></span>
-			
-			<div style="margin-top: 1.5vh;" class="text-justify"> 
-				<small><small> {{ post.text | limitTo: 150 }} </small></small>
+<div class="container-fluid" style="margin-bottom: 10vh;">
+	<div ng-repeat="post in blog.posts">
+		<div class="col-xs-12 col-md-8 col-md-offset-2">
+			<div class="row post-stub" ui-sref="app.blog.post({id: post.id})">
+				<div class="row">
+					<div class="col-xs-9">{{ post.title }}</div>
+					<div class="col-xs-3">
+						<small style="float:right;">{{ post.created_at | date }}</small>
+					</div>
+				</div>
+				
+				<div style="margin-top: 1.5vh;" class="text-justify"> 
+					<small><small ng-bind-html="(post.text | limitTo: 200) + '...' | markdown"> </small></small>
+				</div>
 			</div>
+			<div class="row"><hr></div>
 		</div>
-		<div class="row"><hr></div>
 	</div>
 </div>
