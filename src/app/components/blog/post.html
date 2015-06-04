@@ -1,30 +1,34 @@
 <div class="container-fluid" ng-controller="PostCtrl as post" ng-init="post.loadPosts()">
 	<div class="row">
-		<div class="col-md-12">
-			<span class="link" ui-sref="app.blog.list">
-				back to posts
-			</span>
-			<span style="float:right;">
-				<i ng-show="post.previousPostId()" class="fa fa-arrow-left link" ui-sref="app.blog.post({ id: post.previousPostId() })"></i>
-				&nbsp;
-				<i ng-show="post.nextPostId()" class="fa fa-arrow-right link" ui-sref="app.blog.post({ id: post.nextPostId() })"></i>
-			</span>	
-		</div>
-	</div>
+		<div class="col-md-10 col-md-offset-1">
+			<div class="row">
+				<div class="col-md-12">
+					<span class="link" ui-sref="app.blog.list">
+						back to posts
+					</span>
+					<span style="float:right;">
+						<i ng-show="post.previousPostId()" class="fa fa-arrow-left link" ui-sref="app.blog.post({ id: post.previousPostId() })"></i>
+						&nbsp;
+						<i ng-show="post.nextPostId()" class="fa fa-arrow-right link" ui-sref="app.blog.post({ id: post.nextPostId() })"></i>
+					</span>	
+				</div>
+			</div>
 
-	<div class="row">
-		<div class="col-md-8">
-			<h3 class="post-header">{{ post.selectedPost.title }} <br>
-				<small>{{ post.selectedPost.created_at | date }}</small>
-			</h3>
-		</div>
-	</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="post-header">{{ post.selectedPost.title }} <br>
+						<small>{{ post.selectedPost.created_at | date }}</small>
+					</h3>
+				</div>
+			</div>
 
-	<div class="row">
-		<div class="col-md-12">
-			<p class="post-text text-justify">
-				{{ post.selectedPost.text }}
-			</p>
+			<div class="row"><div class="col-md-12"><hr></div></div>
+
+			<div class="row" style="margin-bottom: 10vh;">
+				<div class="col-md-12">
+					<p class="post-text text-justify" ng-bind-html="post.selectedPost.text | markdown"></p>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
