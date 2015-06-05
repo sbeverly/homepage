@@ -2,9 +2,9 @@
 
 angular.module('homepage')
   .config(function ($stateProvider, $urlRouterProvider) {
-    // $urlRouterProvider.when('/', '/blog/list');
-    // $urlRouterProvider.when('/blog', '/blog/list');
-    // $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.when('/', '/about');
+    $urlRouterProvider.when('/blog', '/blog/posts');
+    $urlRouterProvider.otherwise('/');
     
     $stateProvider
       .state('app', {
@@ -39,13 +39,6 @@ angular.module('homepage')
         url: '/posts/:id',
         views: {
           'content@app.blog': { templateUrl: 'app/components/blog/post.html' }
-        }
-      })
-
-      .state('app.contact', {
-        url: '/contact',
-        views : {
-          'content@': { templateUrl: 'app/components/contact/contact.html' }
         }
       })
   });
