@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('homepage')
-  .controller('BlogCtrl', function ($http, blogService, $rootScope) {
+  .controller('BlogCtrl', function ($http, blogService, $rootScope, lodash) {
   	var self = this;
 
   	self.posts = null;
@@ -10,6 +10,7 @@ angular.module('homepage')
   	self.getPosts = function() {
   	  blogService.postsPromise().then(function() {
         self.posts = blogService.getPosts();
+        self.posts = lodash.sortByOrder(self.posts, "created_at", false);
       });
   	};
 

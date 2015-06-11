@@ -13,8 +13,9 @@ angular.module('homepage')
 
 		service.pullPosts = function() {
 			var deferred = $q.defer();
-
-			$http.get('http://localhost:4000/api/blog_posts')
+			
+			// TODO: add config file to house dev/prod URLs
+			$http.get('http://54.84.147.74/api/blog_posts')
 	  			.success(function(data) {
 	  				_posts = data;
 	  				deferred.resolve(_posts);
