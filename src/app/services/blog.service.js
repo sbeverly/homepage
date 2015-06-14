@@ -15,7 +15,7 @@ angular.module('homepage')
 			var deferred = $q.defer();
 			
 			// TODO: add config file to house dev/prod URLs
-			$http.get('http://54.84.147.74/api/blog_posts')
+			$http.get('http://www.siyanbeverly.com:3000/api/blog_posts')
 	  			.success(function(data) {
 	  				_posts = data;
 	  				deferred.resolve(_posts);
