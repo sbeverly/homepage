@@ -1,3 +1,25 @@
 <div class="container-fluid" ng-controller="ProjectsCtrl as projects" ng-init="projects.loadMyCommits()">
-	{{ projects.myCommits }}
+	<div class="row">
+		<div class="col-md-5" id="github-commits">
+			<timeline>
+				<timeline-event ng-repeat="commit in projects.myCommits">
+					<timeline-badge class="info">
+				    	<i class="glyphicon glyphicon-check"></i>
+				    </timeline-badge>
+				    <timeline-panel class="info">
+						<timeline-heading>
+				    		<h4>
+				    			{{ commit.repoName }}
+						    	<span style="float:right;">
+						    		<small> {{ commit.createdAt | date }} </small>
+						    	</span>
+				    		</h4>
+				   		</timeline-heading>
+				    	<p>{{ commit.message }}</p>
+				    	<small><a href="{{ commit.url }}" target="_blank">view commit</a></small>
+					</timeline-panel>
+				</timeline-event>
+			</timeline>
+		</div>
+	</div>
 </div>
