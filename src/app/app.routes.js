@@ -41,4 +41,11 @@ angular.module('homepage')
           'content@app.blog': { templateUrl: 'app/components/blog/post.html' }
         }
       })
+
+      .state('app.projects', {
+        url: '/projects',
+        views: {
+          'content@': { templateUrl: 'app/components/projects/projects.html' }
+        }
+      })
   });
