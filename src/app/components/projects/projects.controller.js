@@ -14,12 +14,13 @@ angular.module('homepage')
   				if(evnt.type == 'PushEvent') {
   					lodash.each(evnt.payload.commits, function(cmt) {
 	  					var commit = {}
-	  					
+
 		  				commit.repoName = evnt.repo.name
+		  				commit.sha = cmt.sha
 		  				commit.repoUrl = evnt.repo.url
 		  				commit.createdAt = evnt.created_at
 		  				commit.message = cmt.message
-		  				commit.url = cmt.url
+		  				commit.url = self.buildHtmlCommitUrl(commit.repoName, commit.sha)
 		  				commit.author = cmt.author.name
 
 		  				self.myCommits.push(commit)
@@ -28,4 +29,8 @@ angular.module('homepage')
   			})
   		})
   	};
+
+  	self.buildHtmlCommitUrl = function(repoName, sha) {
+  		return 'https://github.com/' + repoName + '/commit/' + sha
+  	}
   });
