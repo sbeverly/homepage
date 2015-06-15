@@ -18,6 +18,10 @@ angular.module('homepage')
 	  		return deferred.promise;
 		};
 
+		service.getMyCommits = function() {
+			return _myCommits
+		}
+
 		service.myCommitsPromise = function() {
 			return myCommitsPromise;
 		}
