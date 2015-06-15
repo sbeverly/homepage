@@ -1,0 +1,15 @@
+#project-detail {
+	font-family: courier;
+	padding-left: 50px;
+}
+
+#github-commits {
+	height: 115vh;
+	overflow-y: scroll;
+}
+
+@media (max-width: 1000px) { 
+	#github-commits {
+		display: none;
+	}
+}
