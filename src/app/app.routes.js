@@ -43,7 +43,7 @@ angular.module('homepage')
       })
 
       .state('app.projects', {
-        url: '/projects',
+        url: 'projects',
         views: {
           'content@': { templateUrl: 'app/components/projects/projects.html' }
         }
