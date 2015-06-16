@@ -11,7 +11,6 @@ angular.module('homepage')
 			$http.get('https://api.github.com/users/sbeverly/events')
 	  			.success(function(data) {
 	  				_myCommits = data;
-	  				console.log(_myCommits)
 	  				deferred.resolve(_myCommits);
 				});
 
