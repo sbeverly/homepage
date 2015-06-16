@@ -1,6 +1,7 @@
 <div class="container-fluid" ng-controller="ProjectsCtrl as projects" ng-init="projects.loadMyCommits()">
 	<div class="row" style="margin-top: 20px;">
 		<div class="col-sm-4" id="github-commits">
+			<div class="row"><p class="col-sm-12">Commit History</p></div>
 			<timeline>
 				<timeline-event ng-repeat="commit in projects.myCommits">
 					<timeline-badge class="info">
@@ -23,16 +24,21 @@
 
 
 		<div class="col-sm-7" id="project-detail">
-			<dt>Project:</dt> <dd> {{ projects.selectedProject.title }} </dd>
+			<dt>Project:</dt> 
+			<dd> 
+				{{ projects.selectedProject.title }} <br>
+			</dd>
 			<br>
-			<dt>Description:</dt>
-			<dd><p ng-bind-html="projects.selectedProject.description | markdown"></p></dd> <br>
 			<dt>Technologies:</dt>
 			<dd>
-				<ul>
-					<li ng-repeat="tech in projects.selectedProject.tech"> {{tech}} </li>
-				</ul>
+				<li style="display: inline" ng-repeat="tech in projects.selectedProject.tech"> 
+					<span ng-if="$index > 0"> | </span>
+					{{tech}} 
+				</li>
 			</dd>
+			<br>
+			<dt>Description:</dt>
+			<dd><p ng-bind-html="projects.selectedProject.description | markdown"></p></dd>
 		</div>
 	</div>
 </div>
